@@ -1,29 +1,29 @@
 const BASE_FONT_SIZE = 14;
 
-export function generateDefaultBlockStyles (baseFontSize = BASE_FONT_SIZE) {
+export function generateDefaultBlockStyles(baseFontSize = BASE_FONT_SIZE) {
     return {
-        div: { },
+        div: {},
         ul: {
             paddingLeft: 20,
-            marginBottom: baseFontSize
+            marginBottom: baseFontSize,
         },
         ol: {
             paddingLeft: 20,
-            marginBottom: baseFontSize
+            marginBottom: baseFontSize,
         },
         iframe: {
-            height: 200
+            height: 200,
         },
         hr: {
             marginTop: baseFontSize / 2,
             marginBottom: baseFontSize / 2,
             height: 1,
-            backgroundColor: '#CCC'
-        }
+            backgroundColor: '#CCC',
+        },
     };
 }
 
-export function generateDefaultTextStyles (baseFontSize = BASE_FONT_SIZE) {
+export function generateDefaultTextStyles(baseFontSize = BASE_FONT_SIZE) {
     return {
         u: { textDecorationLine: 'underline' },
         em: { fontStyle: 'italic' },
@@ -36,7 +36,7 @@ export function generateDefaultTextStyles (baseFontSize = BASE_FONT_SIZE) {
         a: {
             fontSize: baseFontSize,
             textDecorationLine: 'underline',
-            color: '#245dc1'
+            color: '#245dc1',
         },
         h1: _generateHeadingStyle(baseFontSize, 2, 0.67),
         h2: _generateHeadingStyle(baseFontSize, 1.5, 0.83),
@@ -47,32 +47,32 @@ export function generateDefaultTextStyles (baseFontSize = BASE_FONT_SIZE) {
         sub: {
             textAlignVertical: 'top',
             fontSize: baseFontSize * 0.8,
-            marginTop: baseFontSize / 2
+            marginTop: baseFontSize / 2,
         },
         sup: {
             textAlignVertical: 'top',
             fontSize: baseFontSize * 0.8,
-            marginBottom: baseFontSize / 2
+            marginBottom: baseFontSize / 2,
         },
         p: {
             marginTop: baseFontSize,
-            marginBottom: baseFontSize
-        }
+            marginBottom: baseFontSize,
+        },
     };
 }
 
 /**
-* Small utility for generating heading styles
-* @param baseFontSize: the basic font size
-* @param fontMultiplier: the amount to multiply the font size by
-* @param marginMultiplier: the amount to multiply the margin by
-* @return a style def for a heading
-*/
-function _generateHeadingStyle (baseFontSize, fontMultiplier, marginMultiplier) {
+ * Small utility for generating heading styles
+ * @param baseFontSize: the basic font size
+ * @param fontMultiplier: the amount to multiply the font size by
+ * @param marginMultiplier: the amount to multiply the margin by
+ * @return a style def for a heading
+ */
+function _generateHeadingStyle(baseFontSize, fontMultiplier, marginMultiplier) {
     return {
         fontSize: baseFontSize * fontMultiplier,
-        marginTop: (baseFontSize * fontMultiplier) * marginMultiplier,
-        marginBottom: (baseFontSize * fontMultiplier) * marginMultiplier,
-        fontWeight: 'bold'
+        marginTop: baseFontSize * fontMultiplier * marginMultiplier,
+        marginBottom: baseFontSize * fontMultiplier * marginMultiplier,
+        fontWeight: 'bold',
     };
 }

@@ -1,24 +1,26 @@
 {
-    "parser"  : "babel-eslint",
-    "extends" : [
-        "standard",
-        "standard-react"
-     ],
-    "env" : {
-        "browser" : true
+    "parser": "babel-eslint",
+    "extends": ["standard", "standard-react"],
+    "env": {
+        "browser": true
     },
     "globals": {
         "__DEV__": false
     },
     "rules": {
-        "indent": [2, 4],
+        "indent": "off",
         "generator-star-spacing": 0,
-        "react/jsx-indent": [0, 4],
-        "jsx-indent-props": [0, 4],
+        "react/jsx-indent": 0,
+        "react/jsx-indent-props": 0,
         "react/jsx-curly-spacing": [0, "never"],
         "react/jsx-boolean-value": [0, "never"],
-        "semi" : [2, "always"],
-        "operator-linebreak": [2, "after"],
-        "no-warning-comments": [1, { "terms": ["todo", "fixme", "xxx"], "location": "start" }]
+        "semi": [2, "always"],
+        "react/prop-types": 0,
+        "no-warning-comments": [
+            1,
+            { "terms": ["todo", "fixme", "xxx"], "location": "start" }
+        ],
+        "comma-dangle": "off",
+        "space-before-function-paren": "off"
     }
 }
