@@ -77,6 +77,7 @@ export default class HTML extends PureComponent {
         ptSize: 1.3,
         staticContentMaxWidth: Dimensions.get('window').width,
         imagesMaxWidth: Dimensions.get('window').width,
+        imageHeaders: {},
         ignoredTags: IGNORED_TAGS,
         ignoredStyles: [],
         baseFontStyle: { fontSize: 14 },
@@ -137,7 +138,7 @@ export default class HTML extends PureComponent {
                         loadingRemoteURL: true,
                         errorLoadingRemoteURL: false,
                     });
-                    let response = await fetch(uri);
+                    const response = await fetch(uri);
                     this.setState({
                         dom: response._bodyText,
                         loadingRemoteURL: false,
@@ -254,11 +255,11 @@ export default class HTML extends PureComponent {
                     ) === -1)
             ) {
                 // Texts outside <p> or not <p> themselves (with siblings)
-                let wrappedTexts = [];
+                const wrappedTexts = [];
                 for (let j = i; j < children.length; j++) {
                     // Loop on its next siblings and store them in an array
                     // until we encounter a block or a <p>
-                    let nextSibling = children[j];
+                    const nextSibling = children[j];
                     if (
                         nextSibling.wrapper !== 'Text' ||
                         TEXT_TAGS_IGNORING_ASSOCIATION.indexOf(
@@ -310,7 +311,7 @@ export default class HTML extends PureComponent {
             tagsStyles,
             classesStyles,
         } = props;
-        let RNElements = DOMNodes.map((node, nodeIndex) => {
+        const RNElements = DOMNodes.map((node, nodeIndex) => {
             let { children, data } = node;
             if (
                 ignoreNodesFunction &&
@@ -468,7 +469,7 @@ export default class HTML extends PureComponent {
                         ...cssStringToObject(attribs.style || ''),
                     };
 
-                    let textChildrenInheritedStyles = {};
+                    const textChildrenInheritedStyles = {};
                     Object.keys(wrapperStyles).forEach((styleKey) => {
                         // Extract text-only styles
                         if (TextOnlyPropTypes.indexOf(styleKey) !== -1) {

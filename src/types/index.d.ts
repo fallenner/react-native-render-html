@@ -42,6 +42,9 @@ declare module '@starfall/react-native-render-html' {
              * Resize your images to this maximum width.
              */
             imagesMaxWidth?: number;
+
+            /** image Headers */
+            imageHeaders: { [headerName: string]: string };
             /**
              * Your custom renderers.
              */

@@ -1,6 +1,6 @@
 {
     "name": "@starfall/react-native-render-html",
-    "version": "4.2.3",
+    "version": "4.2.4",
     "author": "daizq",
     "license": "BSD-2-Clause",
     "repository": {
@@ -24,6 +24,9 @@
         "html",
         "render-html"
     ],
+    "publishConfig": {
+        "registry": "https://registry.npmjs.org"
+    },
     "dependencies": {
         "buffer": "^4.5.1",
         "events": "^1.1.0",

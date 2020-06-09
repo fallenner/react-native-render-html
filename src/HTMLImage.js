@@ -46,7 +46,7 @@ export default class HTMLImage extends PureComponent {
         this.getImageSize(this.props);
     }
 
-    onImageLoad = ({
+    handleImageLoad = ({
         nativeEvent: { width: originalWidth, height: originalHeight },
     }) => {
         const { imagesMaxWidth } = this.props;
@@ -83,19 +83,19 @@ export default class HTMLImage extends PureComponent {
         }
         if (Array.isArray(style)) {
             style.forEach((styles) => {
-                if (!width && styles['width']) {
-                    styleWidth = styles['width'];
+                if (!width && styles.width) {
+                    styleWidth = styles.width;
                 }
-                if (!height && styles['height']) {
-                    styleHeight = styles['height'];
+                if (!height && styles.height) {
+                    styleHeight = styles.height;
                 }
             });
         } else {
-            if (!width && style['width']) {
-                styleWidth = style['width'];
+            if (!width && style.width) {
+                styleWidth = style.width;
             }
-            if (!height && style['height']) {
-                styleHeight = style['height'];
+            if (!height && style.height) {
+                styleHeight = style.height;
             }
         }
 
@@ -129,7 +129,7 @@ export default class HTMLImage extends PureComponent {
         }
     }
 
-    validImage(source, style, props = {}) {
+    validImage(source, style, imageHeaders) {
         return (
             <View>
                 {!this.state.resized && (
@@ -146,8 +146,8 @@ export default class HTMLImage extends PureComponent {
                     />
                 )}
                 <FastImage
-                    onLoad={this.onImageLoad}
-                    source={source}
+                    onLoad={this.handleImageLoad}
+                    source={{ ...source, headers: imageHeaders }}
                     resizeMode={FastImage.resizeMode.contain}
                     style={[
                         style,
@@ -157,7 +157,7 @@ export default class HTMLImage extends PureComponent {
                             maxWidth: '100%',
                         },
                     ]}
-                    {...props}
+                    // {...props}
                 />
             </View>
         );
@@ -187,10 +187,10 @@ export default class HTMLImage extends PureComponent {
     }
 
     render() {
-        const { source, style, passProps } = this.props;
+        const { source, style, imageHeaders } = this.props;
 
         return !this.state.error
-            ? this.validImage(source, style, passProps)
+            ? this.validImage(source, style, imageHeaders)
             : this.errorImage;
     }
 }
